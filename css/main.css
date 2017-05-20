@@ -1,0 +1,37 @@
+#main{
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+#smartMeterPic{
+   position: absolute;
+    width: 400px;
+}
+
+#info{
+    width: 400px;
+    margin-left: 400px;
+}
+
+#warnung{
+    background-color: #f44242;
+    color: whitesmoke;
+}
+
+#ablesen{
+    margin-top: 100px;
+}
+
+#tabelle{
+    width:430px;
+    float: left;
+}
+
+#formID{
+    margin-left: 70px;
+    margin-top: 18px;
+    width: 300px;
+    float: left;
+}
