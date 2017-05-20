@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script>
+        function random (min, max) {
+            var randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            return randomNum;
+        }
+
+        function randomMaxBurden () {
+            var randomNum = random(min, max);
+            document.write('<input type="text" class="form-control" readonly="readonly" value=" '+ randomNum +' ">');
+        }
+
+        function submitEintrag() {
+            var nK = document.getElementById("Nuterkennung").value;
+            var KhW = document.getElementById("verbrauchswert").value;
+            var date = new Date();
+            var dateString = date.toDateString();
+
+            var tabelle = "tabelle";
+            var table = document.getElementById( tabelle );
+            var zeile = table.getElementsByTagName( "tr" ).length;
+            var tr = table.insertRow( zeile );
+            var nutzerKennung = document.createElement( "td" );
+            var verbrauchskWh = document.createElement( "td" );
+            var timestamps = document.createElement( "td" );
+            nutzerKennung.innerHTML = nK;
+            verbrauchskWh.innerHTML = KhW;
+            timestamps.innerHTML = dateString;
+            tr.appendChild( nutzerKennung );
+            tr.appendChild( verbrauchskWh );
+            tr.appendChild( timestamps );
+        }
+    </script>
+
+    <title>Smart Meter</title>
+</head>
+<body>
+<div id="main">
+    <h1>Detailansicht</h1><br>
+    <img id="smartMeterPic" src="img/smartMeter.jpg"></img>
+    <div id="info">
+        <h4>Gerätekennung</h4>
+        <input type="text" class="form-control" readonly="readonly" value="DE 02469237">
+        <br>
+        <h4>Zulässige maximale Belastung</h4>
+        <script>
+            var min = 50;
+            var max = 100;
+            var maxBelastung = random(min, max);
+            document.write('<input type="text" class="form-control" readonly="readonly" value=" '+ maxBelastung +' ">');
+        </script>
+        <br>
+        <h4>Spannung</h4>
+        <script>
+            var min = 220;
+            var max = 240;
+            var spannung = random(min, max);
+            document.write('<input type="text" class="form-control" readonly="readonly" value=" '+ spannung +' ">');
+        </script>
+        <br>
+        <h4>Stromstärke</h4>
+        <script>
+            var min = 0;
+            var max = maxBelastung + 5;
+            var strom = random(min, max);
+            if(strom > maxBelastung){
+                document.write('<input type="text" class="form-control" id="warnung" readonly="readonly" value=" '+ strom +' ">');
+            }else {
+                document.write('<input type="text" class="form-control"  readonly="readonly" value=" ' + strom + ' ">');
+            }
+        </script>
+    </div>
+    <div id="ablesen">
+        <table class="table table-striped" id="tabelle">
+            <thead>
+            <tr>
+                <th>Nutzerkennung</th>
+                <th>Verbrauchswert (kWh)</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MA 51325497</td>
+                    <td>2283,035</td>
+                    <td>Mon May 15 2017</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>2483,035</td>
+                    <td>Fri May 19 2017</td>
+                </tr>
+            </tbody>
+        </table>
+        <form id="formID" action="" onsubmit="return submitEintrag();" method="POST">
+            Nutzerkennung <input type="text" class="form-control" id="Nuterkennung"><br>
+            Verbrauchswert <input type="text" class="form-control" id="verbrauchswert"><br><br>
+            <input type="button" class="btn btn-success" onclick="submitEintrag()" value="Absenden">
+        </form>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>
