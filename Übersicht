@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<title>SmartMeter Uebersicht</title>
+<style>
+    body {
+        background-color: grey;
+    }
+
+    a {
+       display: block;
+       text-decoration: none;
+       width:200px;
+       margin: 30px auto;
+    }
+
+    img {
+        border:darkgrey solid 4px;
+        width:200px;
+        height: 200px;
+    }
+
+    h4 {
+        text-align: center;
+        color: black;
+        margin : 0;
+    }
+
+</style>
+</head>
+
+<body>
+    <div>
+        <a href=""> 
+            <img src="Medien/SmartMeter.jpg">
+            <h4> Kennung: AB84736520</h4>
+        </a>
+    </div>
+     <div>
+         <a href="">
+             <img src="Medien/SmartMeter.jpg"/>
+             <h4> Kennung: CC29748571</h4>
+         </a>
+    </div>
+
+</body>
+<html>
